@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Vue.js</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=no">
+  </head>
+  <body>
+    <div id="lightView">
+      <h2>Light Model</h2>
+      <input 
+        type="range"
+        v-model="brightness"
+        v-on="
+          mousedown : switchTransition,
+          mouseup : switchObservation,
+          input : send
+        "
+      />
+      <p>Model Brightness: {{ brightness }} <br> Last Received: {{ updated }} <br> State: {{ state }}</p>
+    </div>
+
+    <div id="otherDevice">
+      <h2>Other Device</h2>
+      <input
+        type="range"
+        v-model="brightness"
+        v-on="input : send"
+      />
+      <p>Sent Brightness: {{ brightness }} <br> (just for sending)</p>
+    </div>
+
+    <div id="lightBulb">
+      <h2>Light Bulb</h2>
+      Bulb Brightness: {{ brightness }}
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
